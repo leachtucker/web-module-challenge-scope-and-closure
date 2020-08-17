@@ -55,11 +55,11 @@ function counter2() {
 /* Task 2: inning() 
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
-
 function inning() {
     return Math.floor(Math.random() * 3);
 }
 console.log(inning());
+
 
 /* Task 3: finalScore()
 
@@ -79,15 +79,10 @@ finalScore(inning, 9) might return:
 function finalScore(cb, inningCount) {
     let homeScore = 0;
     let awayScore = 0;
-
     for (let i = 0; i < inningCount; i++) {
         homeScore += cb(inningCount);
-    }
-
-    for (let i = 0; i < inningCount; i++) {
         awayScore += cb(inningCount);
     }
-
     return { home: homeScore, away: awayScore };
 }
 
@@ -113,7 +108,30 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+// Hopefully I did this right. Super confused on baseball and the instructions. 
+function scoreboard(getInningScore, inning, inningCount) {
+    let scores = [];
 
-function scoreboard( /* CODE HERE */ ) {
-    /* CODE HERE */
+    for (let i = 0; i < inningCount; i++) {
+        scores.push(getInningScore(inning, 1));
+    }
+
+    let homeFinal = 0;
+    let awayFinal = 0;
+
+    for (i in scores) {
+        homeFinal += scores[i].home;
+        awayFinal += scores[i].away;
+    }
+
+    let verboseResult = ``;
+
+    for (let i = 0; i < scores.length; i++) {
+        verboseResult += `Inning ${i+1}: ${scores[i].away} - ${scores[i].home} \n`;
+    }
+
+    verboseResult += `Final Score: ${awayFinal} - ${homeFinal}`;
+    return verboseResult;
 }
+
+console.log(scoreboard(finalScore, inning, 9));
