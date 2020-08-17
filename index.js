@@ -124,14 +124,12 @@ function scoreboard(getInningScore, inning, inningCount) {
         awayFinal += scores[i].away;
     }
 
-    let verboseResult = ``;
-
-    for (let i = 0; i < scores.length; i++) {
-        verboseResult += `Inning ${i+1}: ${scores[i].away} - ${scores[i].home} \n`;
+    return function() {
+        for (let i = 0; i < scores.length; i++) {
+            console.log(`Inning ${i+1}: ${scores[i].away} - ${scores[i].home} \n`);
+        }
+        console.log(`Final Score: ${awayFinal} - ${homeFinal}`);
     }
-
-    verboseResult += `Final Score: ${awayFinal} - ${homeFinal}`;
-    return verboseResult;
 }
 
-console.log(scoreboard(finalScore, inning, 9));
+scoreboard(finalScore, inning, 9)();
