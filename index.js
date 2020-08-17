@@ -75,11 +75,23 @@ finalScore(inning, 9) might return:
 
 */
 
-function finalScore( /*code Here*/ ) {
+// I have no idea how baseball works but trying my best here!
+function finalScore(cb, inningCount) {
+    let homeScore = 0;
+    let awayScore = 0;
 
-    /*Code Here*/
+    for (let i = 0; i < inningCount; i++) {
+        homeScore += cb(inningCount);
+    }
 
+    for (let i = 0; i < inningCount; i++) {
+        awayScore += cb(inningCount);
+    }
+
+    return { home: homeScore, away: awayScore };
 }
+
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
