@@ -42,7 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+	A closure is essentially a nested function. It gives you access to an outer function's scope for variables/objects/data. It can be advantageous for keeping variables private and out of the global scope.
 2. Study the following code, then answer the questions below.
+	
 
 ```js
 function personalDice(name){
@@ -63,8 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+	Clsoure is used in this given function to return an anonymous function with a random number between 0 and 6 each time it is called. 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+	Each time dansRoll is called the name will remain the same but the it will generate a new random number.
 c. What is the lexical scope of `newRoll`? 
+	newRoll is only available for access inside the return function of personalDice. 
 
 ### Task 2c - Exit Ticket
 
