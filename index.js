@@ -133,3 +133,14 @@ function scoreboard(getInningScore, inning, inningCount) {
 }
 
 scoreboard(finalScore, inning, 9)();
+
+// Stretch #2 
+function createBase(num) {
+    return function(num2) {
+        return num + num2;
+    }
+}
+
+let addSix = createBase(6);
+console.log(addSix(10)); // returns 16
+console.log(addSix(21)); // returns 27
